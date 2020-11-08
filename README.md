@@ -8,7 +8,7 @@ This dataset describes the minimum daily temperatures over 10 years (1981-1990) 
 ## What is it?
 
 ProphetFlow is a [Metaflow](https://metaflow.org/) flow using Facebook [Prophet](https://facebook.github.io/prophet/) to predict future values of a timeseries. 
-A Prophet model is trained to predict next year minimum daily temperatures. Hyperparameters tuning is performed with cross-validation. 
+A Prophet model is trained to predict next year minimum daily temperatures. [Hyperparameters tuning](https://facebook.github.io/prophet/docs/diagnostics.html#hyperparameter-tuning) is performed with cross-validation. 
 
 ```
 Step start

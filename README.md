@@ -47,6 +47,27 @@ In `predict.ipynb` notebook it's explained how to use Prophet trained model to p
 ![Forecast](https://github.com/vittorio-nardone/prophet-metaflow/blob/main/img/forecast.png "Forecast")
 ![Forecast components](https://github.com/vittorio-nardone/prophet-metaflow/blob/main/img/forecast_components.png "Forecast components")
 
+A simple flow without hyperparameters tuning: `python src/ProphetSimpleFlow.py run`
 
+## Run in AWS
 
+To configure Metaflow to use AWS Cloud, you first need to create stack:
 
+```
+aws s3 cp aws/metaflow-cfn-template.yml s3://<your_bucket>
+aws cloudformation create-stack --stack-name metaflow \
+                                --template-url <url_of_template_in_your_bucket> \
+                                --capabilities CAPABILITY_IAM
+```
+
+When Cloudformation stack is created, you must configure Metaflow.
+
+`metaflow configure aws`
+
+To run all steps in flow in AWS Batch: 
+
+`python src/ProphetFlow.py run --with batch:image=vnardone/prophet-metaflow`
+
+An example of how to run a single step in AWS Batch (using @batch decorator):
+
+`python src/ProphetAWSStepFlow.py run` 

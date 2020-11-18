@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 from io import StringIO
 
-from metaflow import FlowSpec, step, Parameter, IncludeFile
+from metaflow import FlowSpec, step, Parameter, IncludeFile, batch
 
 from fbprophet import Prophet
 from fbprophet.diagnostics import cross_validation, performance_metrics
@@ -54,6 +54,7 @@ class ProphetFlow(FlowSpec):
         # Use cross validation to evaluate all parameters
         self.next(self.cross_validation, foreach='all_params')
 
+    @batch(image='vnardone/prophet-metaflow')
     @step
     def cross_validation(self):
         """

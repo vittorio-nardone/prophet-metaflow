@@ -2,6 +2,8 @@
 
 An example of how to run Facebook Prophet in Metaflow. 
 
+[Read full blog post here!!](https://www.vittorionardone.it/en/2020/11/19/time-series-forecasting-with-prophet-and-metaflow/)
+
 **Minimum daily temperatures dataset is used**.
 This dataset describes the minimum daily temperatures over 10 years (1981-1990) in the city Melbourne, Australia. The units are in degrees Celsius and there are 3650 observations. The source of the data is credited as the Australian Bureau of Meteorology.
 
